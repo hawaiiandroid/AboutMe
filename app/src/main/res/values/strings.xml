@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Über mich</string>
     <string name="name">Tim Wagner</string>
+    <string name="yellow_star">Gelber Stern</string>
 </resources>
