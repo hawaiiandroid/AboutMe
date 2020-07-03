@@ -2,4 +2,15 @@
     <string name="app_name">Über mich</string>
     <string name="name">Tim Wagner</string>
     <string name="yellow_star">Gelber Stern</string>
+    <string name="bio">
+        <b>Lorem ipsum dolor sit \"amet\", consectetur adipiscing elit.</b>\n
+        Praesent ultricies mollis diam, vitae pulvinar massa malesuada et.
+        Cras mattis lectus vel diam faucibus, sit amet consequat leo scelerisque.
+        Vivamus eleifend purus ut suscipit interdum. Praesent elit nibh, ultricies et nunc quis,
+        vehicula dapibus lacus. Nulla fermentum porttitor facilisis. Maecenas cursus sem ac
+        ultricies accumsan. Integer bibendum erat quis orci posuere, at gravida arcu finibus.
+        Phasellus sit amet orci tristique, placerat sem et, luctus nisi. Nulla quis orci massa.
+        Pellentesque sit amet mi quis eros consectetur lobortis.
+        Vivamus scelerisque magna eu sollicitudin blandit.\n\n
+    </string>
 </resources>
