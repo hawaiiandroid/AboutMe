@@ -1,11 +1,13 @@
 package io.github.hawaiiandroid.aboutme
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,5 +31,9 @@ class MainActivity : AppCompatActivity() {
         view.visibility = View.GONE
 
         nicknameText.visibility = View.VISIBLE
+
+        // Ausblenden der Tastatur
+        val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
