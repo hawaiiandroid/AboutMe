@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.done_button).setOnClickListener { addNickname(it) }
+        findViewById<TextView>(R.id.nickname_text).setOnClickListener{ updateNickname(it) }
     }
 
     /**
@@ -35,5 +36,25 @@ class MainActivity : AppCompatActivity() {
         // Ausblenden der Tastatur
         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    /**
+     * Aktualisiert den Spitznamen nach Klick auf das Textelement
+     * @param view das Textelement
+     */
+    fun updateNickname(view: View) {
+        val nicknameEdit = findViewById<EditText>(R.id.nicknameEdit)
+        val doneButton = findViewById<Button>(R.id.done_button)
+
+        nicknameEdit.visibility = View.VISIBLE
+        view.visibility = View.GONE
+        doneButton.visibility = View.VISIBLE
+
+        // Setzen des Fokus auf das Eingabefeld
+        nicknameEdit.requestFocus()
+
+        // Einblenden der Tastatur
+        val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.showSoftInput(nicknameEdit, 0)
     }
 }
