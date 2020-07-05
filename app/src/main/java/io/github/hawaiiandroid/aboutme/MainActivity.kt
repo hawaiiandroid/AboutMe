@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Übernimmt den Spitznamen und blendet das Eingabeelement + Button aus und das Textelement ein
+     * Übernimmt den Spitznamen und blendet das Eingabeelement inkl. Button
+     * aus und das Textelement ein
      * @param view Der Fertig-Knopf
      */
     fun addNickname(view: View) {
