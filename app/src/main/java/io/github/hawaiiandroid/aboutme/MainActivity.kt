@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * Übernimmt den Spitznamen und blendet das Eingabeelement inkl. Button
      * aus und das versteckte Textelement ein
-     * @param view Der Fertig-Knopf
+     * @param view Der "Fertig"-Knopf
      */
     fun addNickname(view: View) {
         val nicknameEdit = findViewById<EditText>(R.id.nicknameEdit)
