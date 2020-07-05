@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Übernimmt den Spitznamen und blendet das Eingabeelement inkl. Button
-     * aus und das Textelement ein
+     * aus und das versteckte Textelement ein
      * @param view Der Fertig-Knopf
      */
     fun addNickname(view: View) {
