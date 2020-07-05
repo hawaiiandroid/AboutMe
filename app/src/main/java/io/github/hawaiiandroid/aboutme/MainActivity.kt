@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Übernimmt den Spitznamen und blendet das Eingabeelement + Button aus und das Textelement ein
-     * @param view Der Fertig-Button
+     * @param view Der Fertig-Knopf
      */
     fun addNickname(view: View) {
         val nicknameEdit = findViewById<EditText>(R.id.nicknameEdit)
