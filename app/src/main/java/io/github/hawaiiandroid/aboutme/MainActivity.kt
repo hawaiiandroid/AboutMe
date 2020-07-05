@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Aktualisiert den Spitznamen nach Klick auf das Textelement
+     * Aktualisiert den Spitznamen nach dem Klick auf das Textelement
      * @param view das Textelement
      */
     fun updateNickname(view: View) {
