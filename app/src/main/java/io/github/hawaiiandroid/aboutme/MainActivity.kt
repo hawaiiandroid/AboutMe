@@ -4,18 +4,19 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import io.github.hawaiiandroid.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        findViewById<Button>(R.id.done_button).setOnClickListener { addNickname(it) }
-        findViewById<TextView>(R.id.nickname_text).setOnClickListener{ updateNickname(it) }
+        binding.doneButton.setOnClickListener { addNickname() }
+        binding.nicknameText.setOnClickListener { updateNickname() }
     }
 
     /**
@@ -23,39 +24,33 @@ class MainActivity : AppCompatActivity() {
      * aus und das versteckte Textelement ein
      * @param view Der "Fertig"-Knopf
      */
-    fun addNickname(view: View) {
-        val nicknameEdit = findViewById<EditText>(R.id.nicknameEdit)
-        val nicknameText = findViewById<TextView>(R.id.nickname_text)
+    fun addNickname() {
+        binding.nicknameText.text = binding.nicknameEdit.text.toString()
+        binding.nicknameEdit.visibility = View.GONE
 
-        nicknameText.text = nicknameEdit.text
-        nicknameEdit.visibility = View.GONE
+        binding.doneButton.visibility = View.GONE
 
-        view.visibility = View.GONE
-
-        nicknameText.visibility = View.VISIBLE
+        binding.nicknameText.visibility = View.VISIBLE
 
         // Ausblenden der Tastatur
         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputManager.hideSoftInputFromWindow(view.windowToken, 0)
+        inputManager.hideSoftInputFromWindow(binding.nicknameEdit.windowToken, 0)
     }
 
     /**
      * Aktualisiert den Spitznamen nach dem Klick auf das Textelement
      * @param view das Textelement
      */
-    fun updateNickname(view: View) {
-        val nicknameEdit = findViewById<EditText>(R.id.nicknameEdit)
-        val doneButton = findViewById<Button>(R.id.done_button)
-
-        nicknameEdit.visibility = View.VISIBLE
-        view.visibility = View.GONE
-        doneButton.visibility = View.VISIBLE
+    fun updateNickname() {
+        binding.nicknameEdit.visibility = View.VISIBLE
+        binding.nicknameText.visibility = View.GONE
+        binding.doneButton.visibility = View.VISIBLE
 
         // Setzen des Fokus auf das Eingabefeld
-        nicknameEdit.requestFocus()
+        binding.nicknameEdit.requestFocus()
 
         // Einblenden der Tastatur
         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputManager.showSoftInput(nicknameEdit, 0)
+        inputManager.showSoftInput(binding.nicknameEdit, 0)
     }
 }
