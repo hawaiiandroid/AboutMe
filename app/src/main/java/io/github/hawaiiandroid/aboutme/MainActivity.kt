@@ -11,9 +11,13 @@ import io.github.hawaiiandroid.aboutme.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
+    private var myName: MyName = MyName(name = "Tim Wagner")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.myName = myName
 
         binding.doneButton.setOnClickListener { addNickname() }
         binding.nicknameText.setOnClickListener { updateNickname() }
@@ -25,12 +29,13 @@ class MainActivity : AppCompatActivity() {
      * @param view Der "Fertig"-Knopf
      */
     fun addNickname() {
-        binding.nicknameText.text = binding.nicknameEdit.text.toString()
-        binding.nicknameEdit.visibility = View.GONE
-
-        binding.doneButton.visibility = View.GONE
-
-        binding.nicknameText.visibility = View.VISIBLE
+        binding.apply {
+            myName?.nickname = nicknameEdit.text.toString()
+            invalidateAll()
+            nicknameEdit.visibility = View.GONE
+            doneButton.visibility = View.GONE
+            nicknameText.visibility = View.VISIBLE
+        }
 
         // Ausblenden der Tastatur
         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
